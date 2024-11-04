@@ -5,6 +5,7 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
+import org.apache.jena.vocabulary.DCTerms;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,10 @@ public class Main
 
         OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
         RDFDataMgr.read(ontModel, EXAMPLE_TTL, Lang.TTL);
+
+        // uncomment this to load the DCTerm
+        // ontModel.createOntProperty(DCTerms.conformsTo.getURI());
+
         List<OntProperty> properties = new ArrayList<>();
         List<OntClass> classes = new ArrayList<>();
 
